@@ -1,71 +1,93 @@
 import { Card, CardContent } from "@/components/ui/card";
-import simulatorImage from "@/assets/product-simulator.jpg";
-import equipmentImage from "@/assets/product-equipment.jpg";
-import motionImage from "@/assets/product-motion.jpg";
+import towflexxLogo from "@/assets/towflexx-logo.png";
+import motionPlatform from "@/assets/motion-platform-1.png";
+import motionSimulator from "@/assets/motion-simulator.png";
+import motionSystemsLogo from "@/assets/motion-systems-logo.png";
 
 const Products = () => {
   const products = [
     {
-      title: "飛行模擬訓練系統",
-      description: "專業級飛行模擬器，提供真實的飛行訓練體驗，配備最先進的控制系統和高解析度視覺系統。",
-      image: simulatorImage,
-      features: ["高精度控制系統", "沉浸式視覺體驗", "客製化訓練方案"],
+      title: "SOCOMORE",
+      logo: null,
+      description: "SOCOMORE 為金屬和複合材料的製備和清潔提供廣泛的解決方案，用於運輸工具（包括鐵路）的建造和維護。我們的產品範圍涵蓋不同的領域，例如塗鴉去除、粘合和噴漆前表面的準備和清潔、外表面脫脂、內表面消毒、脫漆等專業服務。",
+      image: null,
+      bgColor: "from-primary/20 to-accent/20",
     },
     {
-      title: "航空維修設備",
-      description: "完整的航空維修與工程設備解決方案，確保飛機維護的最高標準和安全性。",
-      image: equipmentImage,
-      features: ["專業維修工具", "品質檢測設備", "技術支援服務"],
+      title: "TowFLEXX",
+      logo: towflexxLogo,
+      description: "TowFLEXX 的大型無牽引桿拖飛機是完全遙控的，並配備了獨特的 360° 旋轉轉盤。這項技術確保了最大的安全性並提供了卓越的機動性，大大簡化了地面作業。這一獨家功能使 TowFLEXX 成為現代地勤解決方案的領先供應商。",
+      image: null,
+      bgColor: "from-destructive/20 to-primary/20",
     },
     {
-      title: "運動模擬平台",
-      description: "六自由度運動平台系統，提供精確的運動模擬，適用於各種訓練場景。",
-      image: motionImage,
-      features: ["六自由度設計", "高精度控制", "多場景應用"],
+      title: "Motion Systems",
+      logo: motionSystemsLogo,
+      description: "Motion Systems 廣泛的專業運動平台和模擬器組件，專門針對期望運動系統不僅具有高品質和可靠性，還包括驚人的運動精度、卓越的動態性能和表現的客戶。運動平台非常適合構建全運動模擬器，用於研究、教育、設備測試或專業飛行和駕駛訓練。從2DOF、3DOF到6DOF的大量選擇，完美適應運動模擬領域中最尖端的項目和應用。",
+      image: motionSimulator,
+      bgColor: "from-accent/20 to-secondary/20",
     },
   ];
 
   return (
-    <section id="products" className="py-20 bg-muted">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="products" className="py-20 bg-muted relative overflow-hidden">
+      {/* Animated background grid */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            產品資訊
+            產品代理
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            提供業界領先的航空訓練與模擬設備
+            國際頂尖航太科技品牌授權代理
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-accent/50 bg-card/50 backdrop-blur-sm"
+              style={{
+                animationDelay: `${index * 150}ms`,
+              }}
             >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              </div>
+              {product.image ? (
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              ) : (
+                <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${product.bgColor} flex items-center justify-center`}>
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)] animate-pulse" />
+                  {product.logo && (
+                    <img
+                      src={product.logo}
+                      alt={product.title}
+                      className="max-w-[70%] max-h-[50%] object-contain transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
+                </div>
+              )}
+              
               <CardContent className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-foreground">
-                  {product.title}
-                </h3>
-                <p className="text-muted-foreground mb-4">
+                {!product.logo && (
+                  <h3 className="text-2xl font-bold mb-4 text-foreground bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    {product.title}
+                  </h3>
+                )}
+                <p className="text-muted-foreground leading-relaxed">
                   {product.description}
                 </p>
-                <ul className="space-y-2">
-                  {product.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                      <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                
+                {/* Tech accent line */}
+                <div className="mt-6 h-1 w-0 group-hover:w-full bg-gradient-to-r from-accent to-primary transition-all duration-500 rounded-full" />
               </CardContent>
             </Card>
           ))}
