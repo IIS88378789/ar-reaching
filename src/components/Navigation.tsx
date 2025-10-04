@@ -21,7 +21,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-3">
             <img src={logo} alt="Aerobatic Logo" className="h-12 w-auto" />
             <div className="text-primary-foreground">
-              <div className="font-bold text-lg leading-tight">宇航科技有限公司</div>
+              <div className="font-bold text-lg leading-tight">尹航科技有限公司</div>
               <div className="text-xs opacity-90">Aerobatic Technologies Ltd.</div>
             </div>
           </div>
