@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import socomorelogo from "@/assets/socomore-logo.png";
 import towflexxLogo from "@/assets/towflexx-logo.png";
 import motionPlatform from "@/assets/motion-platform-1.png";
 import motionSimulator from "@/assets/motion-simulator.png";
@@ -8,7 +9,7 @@ const Products = () => {
   const products = [
     {
       title: "SOCOMORE",
-      logo: null,
+      logo: socomorelogo,
       description: "SOCOMORE 為金屬和複合材料的製備和清潔提供廣泛的解決方案，用於運輸工具（包括鐵路）的建造和維護。我們的產品範圍涵蓋不同的領域，例如塗鴉去除、粘合和噴漆前表面的準備和清潔、外表面脫脂、內表面消毒、脫漆等專業服務。",
       image: null,
       bgColor: "from-primary/20 to-accent/20",
