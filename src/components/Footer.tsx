@@ -51,15 +51,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span className="opacity-90">台灣台北市信義區信義路五段7號</span>
+                <span className="opacity-90">桃園市桃園區大興西路二段139巷137號3F</span>
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Phone size={16} className="flex-shrink-0" />
-                <span className="opacity-90">+886-2-1234-5678</span>
+                <span className="opacity-90">+886-932 332804</span>
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Mail size={16} className="flex-shrink-0" />
-                <span className="opacity-90">info@aerobatic.com.tw</span>
+                <span className="opacity-90">sales@aerobatic-tec.com.tw</span>
               </li>
             </ul>
           </div>
