@@ -1,9 +1,7 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
-
 const Footer = () => {
-  return (
-    <footer className="bg-primary text-primary-foreground">
+  return <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
@@ -11,7 +9,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <img src={logo} alt="Aerobatic Logo" className="h-12 w-auto" />
               <div>
-                <div className="font-bold text-lg">宇航科技有限公司</div>
+                <div className="font-bold text-lg">尹航科技有限公司</div>
                 <div className="text-xs opacity-90">Aerobatic Technologies Ltd.</div>
               </div>
             </div>
@@ -71,8 +69,6 @@ const Footer = () => {
           <p>&copy; 2024 宇航科技有限公司 Aerobatic Technologies Ltd. 版權所有</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
