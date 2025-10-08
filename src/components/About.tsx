@@ -66,9 +66,17 @@ const About = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
-          const Icon = stat.icon;
-          return;
-        })}
+            const Icon = stat.icon;
+            return (
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <Icon className="mx-auto mb-4 text-primary" size={48} />
+                  <div className="text-3xl font-bold text-foreground mb-2">{stat.value}</div>
+                  <div className="text-muted-foreground">{stat.label}</div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>;

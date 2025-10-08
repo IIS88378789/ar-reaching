@@ -5,6 +5,7 @@ import News from "@/components/News";
 import Services from "@/components/Services";
 import QualityPolicy from "@/components/QualityPolicy";
 import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <Services />
       <QualityPolicy />
       <About />
+      <Contact />
       <Footer />
     </div>
   );
