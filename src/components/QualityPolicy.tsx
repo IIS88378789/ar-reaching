@@ -59,7 +59,7 @@ const QualityPolicy = () => {
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-8 text-center bg-transparent">
                   {/* Icon container with animation */}
                   <div className="relative mb-6">
                     <div className="w-20 h-20 mx-auto bg-background rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
