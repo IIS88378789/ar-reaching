@@ -115,7 +115,7 @@ const QualityPolicy = () => {
                   <h3 className="text-xl font-bold mb-4 text-foreground">
                     {policy.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-muted-foreground leading-relaxed text-sm text-left">
                     {isLoading ? "生成中..." : policy.content}
                   </p>
 
