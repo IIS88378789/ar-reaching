@@ -33,12 +33,23 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            我們的服務
+    <section id="services" className="py-20 bg-background overflow-hidden relative">
+      {/* Tech Background */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-40" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[100px]" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-block mb-4">
+            <span className="text-sm font-semibold text-accent uppercase tracking-wider">Services</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              我們的服務
+            </span>
           </h2>
+          <div className="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-accent to-transparent mb-6" />
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             提供全方位的航空科技服務與解決方案
           </p>
@@ -52,14 +63,14 @@ const Services = () => {
             return (
               <div
                 key={index}
-                className={`relative grid md:grid-cols-2 gap-8 items-center ${
+                className={`relative grid md:grid-cols-2 gap-12 items-center ${
                   isEven ? "" : "md:grid-flow-dense"
                 }`}
               >
                 {/* Geometric background decoration */}
                 <div
-                  className={`absolute top-1/2 -translate-y-1/2 w-72 h-72 bg-primary/5 rotate-45 -z-10 ${
-                    isEven ? "-left-20" : "-right-20"
+                  className={`absolute top-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-accent/10 to-secondary/10 rounded-full blur-3xl ${
+                    isEven ? "-left-32" : "-right-32"
                   }`}
                 />
                 
@@ -67,14 +78,23 @@ const Services = () => {
                 <div
                   className={`relative group ${isEven ? "" : "md:col-start-2"}`}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg transform rotate-3 group-hover:rotate-6 transition-transform duration-300" />
-                  <div className="relative overflow-hidden rounded-lg shadow-xl">
+                  {/* Floating geometric shapes */}
+                  <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-accent/30 rounded-lg rotate-12 group-hover:rotate-45 transition-transform duration-500" />
+                  <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-secondary/30 rounded-lg -rotate-12 group-hover:-rotate-45 transition-transform duration-500" />
+                  
+                  <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-glow transition-all duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-secondary/20 z-10" />
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent z-10" />
+                    
+                    {/* Glowing border effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute inset-0 rounded-2xl border-2 border-accent/50 animate-pulse-glow" />
+                    </div>
                   </div>
                 </div>
 
@@ -83,19 +103,35 @@ const Services = () => {
                   className={`relative ${isEven ? "" : "md:col-start-1 md:row-start-1"}`}
                 >
                   <div className="space-y-6">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg shadow-lg">
-                      <Icon className="w-8 h-8 text-primary-foreground" />
+                    {/* Icon with glow effect */}
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-accent via-secondary to-primary rounded-2xl shadow-lg group hover:shadow-glow-sm transition-all duration-300 relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent to-secondary rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+                      <Icon className="w-10 h-10 text-primary-foreground relative z-10" />
                     </div>
                     
-                    <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-                      {service.title}
+                    {/* Title with gradient */}
+                    <h3 className="text-3xl md:text-4xl font-bold">
+                      <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
+                        {service.title}
+                      </span>
                     </h3>
                     
-                    <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent" />
+                    {/* Animated divider */}
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-accent rounded-full animate-pulse-glow" />
+                      <div className="w-24 h-1 bg-gradient-to-r from-accent via-secondary to-transparent" />
+                    </div>
                     
                     <p className="text-lg text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
+
+                    {/* Tech decoration lines */}
+                    <div className="flex gap-2 pt-4">
+                      <div className="h-1 w-12 bg-accent/50 rounded" />
+                      <div className="h-1 w-8 bg-secondary/50 rounded" />
+                      <div className="h-1 w-6 bg-accent/30 rounded" />
+                    </div>
                   </div>
                 </div>
               </div>
