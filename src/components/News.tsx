@@ -1,84 +1,59 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef, useEffect } from "react";
 import newsSimulator from "@/assets/news-simulator-training.jpg";
 import newsMotion from "@/assets/news-motion-platform.jpg";
 import newsExhibition from "@/assets/news-exhibition.jpg";
-
 const News = () => {
-  const plugin = useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
-  );
-
-  const newsItems = [
-    {
-      date: "2024年3月15日",
-      title: "中華科技大學簽署 A320 模擬機訓練合作計畫",
-      excerpt: "本公司與中華科技大學航空學院簽署合作協議，共同推動專業飛行訓練計畫，提升航空人才培訓品質。",
-      category: "合作夥伴",
-      bgGradient: "from-blue-500/10 to-cyan-500/10",
-      image: newsSimulator,
-    },
-    {
-      date: "2024年2月28日",
-      title: "新一代六自由度運動平台正式發表",
-      excerpt: "經過兩年研發，最新型六自由度運動平台系統正式發表，具備更高精度與更廣泛的應用範圍。",
-      category: "產品發表",
-      bgGradient: "from-purple-500/10 to-pink-500/10",
-      image: newsMotion,
-    },
-    {
-      date: "2024年1月10日",
-      title: "參展2024亞洲航空技術展覽會",
-      excerpt: "本公司將參加年度亞洲最大航空技術展，展示最新的飛行訓練系統與模擬設備解決方案。",
-      category: "活動資訊",
-      bgGradient: "from-emerald-500/10 to-teal-500/10",
-      image: newsExhibition,
-    },
-  ];
-
-  return (
-    <section id="news" className="py-20 bg-background">
+  const plugin = useRef(Autoplay({
+    delay: 3000,
+    stopOnInteraction: false,
+    stopOnMouseEnter: true
+  }));
+  const newsItems = [{
+    date: "2024年3月15日",
+    title: "中華科技大學簽署 A320 模擬機訓練合作計畫",
+    excerpt: "本公司與中華科技大學航空學院簽署合作協議，共同推動專業飛行訓練計畫，提升航空人才培訓品質。",
+    category: "合作夥伴",
+    bgGradient: "from-blue-500/10 to-cyan-500/10",
+    image: newsSimulator
+  }, {
+    date: "2024年2月28日",
+    title: "新一代六自由度運動平台正式發表",
+    excerpt: "經過兩年研發，最新型六自由度運動平台系統正式發表，具備更高精度與更廣泛的應用範圍。",
+    category: "產品發表",
+    bgGradient: "from-purple-500/10 to-pink-500/10",
+    image: newsMotion
+  }, {
+    date: "2024年1月10日",
+    title: "參展2024亞洲航空技術展覽會",
+    excerpt: "本公司將參加年度亞洲最大航空技術展，展示最新的飛行訓練系統與模擬設備解決方案。",
+    category: "活動資訊",
+    bgGradient: "from-emerald-500/10 to-teal-500/10",
+    image: newsExhibition
+  }];
+  return <section id="news" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             最新消息
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            掌握宇航科技的最新動態與產業資訊
-          </p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">掌握尹航科技的最新動態與產業資訊</p>
         </div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          plugins={[plugin.current]}
-          className="w-full max-w-6xl mx-auto mb-12"
-        >
+        <Carousel opts={{
+        align: "start",
+        loop: true
+      }} plugins={[plugin.current]} className="w-full max-w-6xl mx-auto mb-12">
           <CarouselContent>
-            {newsItems.map((item, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            {newsItems.map((item, index) => <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-2">
-                  <Card
-                    className={`overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br ${item.bgGradient} border-2 group`}
-                  >
+                  <Card className={`overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br ${item.bgGradient} border-2 group`}>
                     <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                      <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                       <div className="absolute top-3 left-3 inline-block px-3 py-1 bg-accent text-primary-foreground rounded-full text-xs font-medium">
                         {item.category}
                       </div>
@@ -101,8 +76,7 @@ const News = () => {
                     </CardContent>
                   </Card>
                 </div>
-              </CarouselItem>
-            ))}
+              </CarouselItem>)}
           </CarouselContent>
           <CarouselPrevious className="left-2" />
           <CarouselNext className="right-2" />
@@ -114,8 +88,6 @@ const News = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default News;
