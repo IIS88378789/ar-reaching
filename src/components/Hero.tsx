@@ -48,7 +48,7 @@ const Hero = () => {
           number: "15+",
           label: "年經驗"
         }, {
-          number: "500+",
+          number: "100+",
           label: "專案實績"
         }, {
           number: "98%",
