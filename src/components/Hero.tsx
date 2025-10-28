@@ -40,11 +40,11 @@ const Hero = () => {
               alt={image.alt} 
               className="w-full h-full object-cover" 
             />
+            <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80" />
           </div>
         ))}
-        <div className="absolute inset-0 bg-[image:var(--gradient-hero)]" />
         {/* Tech Grid Overlay */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
       </div>
 
       {/* Animated Glow Effects */}
