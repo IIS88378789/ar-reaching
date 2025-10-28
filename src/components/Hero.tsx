@@ -7,42 +7,36 @@ import heroAlpha from "@/assets/hero-alpha-aircraft.jpg";
 import heroBlue from "@/assets/hero-blue-aircraft.jpg";
 import heroHangar from "@/assets/hero-hangar-aircraft.jpg";
 const Hero = () => {
-  const heroImages = [
-    { src: heroEngineTest, alt: "Aviation engine testing equipment" },
-    { src: heroSundance, alt: "Sundance aircraft on display" },
-    { src: heroAlpha, alt: "Alpha light sport aircraft in hangar" },
-    { src: heroBlue, alt: "Blue aircraft maintenance setup" },
-    { src: heroHangar, alt: "Aircraft in professional hangar facility" }
-  ];
-
+  const heroImages = [{
+    src: heroEngineTest,
+    alt: "Aviation engine testing equipment"
+  }, {
+    src: heroSundance,
+    alt: "Sundance aircraft on display"
+  }, {
+    src: heroAlpha,
+    alt: "Alpha light sport aircraft in hangar"
+  }, {
+    src: heroBlue,
+    alt: "Blue aircraft maintenance setup"
+  }, {
+    src: heroHangar,
+    alt: "Aircraft in professional hangar facility"
+  }];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+      setCurrentImageIndex(prevIndex => (prevIndex + 1) % heroImages.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, [heroImages.length]);
-
   return <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image Slider with Overlay */}
       <div className="absolute inset-0">
-        {heroImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-[2000ms] ${
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <img 
-              src={image.src} 
-              alt={image.alt} 
-              className="w-full h-full object-cover" 
-            />
+        {heroImages.map((image, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-[2000ms] ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}>
+            <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80" />
-          </div>
-        ))}
+          </div>)}
       </div>
 
       {/* Content */}
@@ -53,9 +47,7 @@ const Hero = () => {
           專業航空科技解決方案
         </h1>
         
-        <p className="text-xl md:text-2xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-          提供創新的飛行訓練系統、運動模擬平台及航空設備代理服務
-        </p>
+        <p className="text-xl md:text-2xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed">提供創新的飛行訓練系統、活動模擬平臺及航空設備專業維修</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="text-lg group bg-gradient-to-r from-accent to-secondary hover:shadow-glow-sm transition-all duration-300">
