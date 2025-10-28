@@ -9,14 +9,20 @@ import motionSystemsLogo from "@/assets/motion-systems-logo.png";
 import testfuchsLogo from "@/assets/testfuchs-logo.svg";
 import motionSimulatorDetail from "@/assets/motion-simulator-detail.png";
 import motionPlatformDetail from "@/assets/motion-platform-detail.png";
+import socomoreRailway from "@/assets/socomore-railway.jpg";
 
 const Products = () => {
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isMotionGalleryOpen, setIsMotionGalleryOpen] = useState(false);
+  const [isSocomoreGalleryOpen, setIsSocomoreGalleryOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const motionSystemsGallery = [
     { src: motionSimulatorDetail, alt: "Motion Systems Simulator QS-S25" },
     { src: motionPlatformDetail, alt: "Motion Systems Platform PS-6TL-350" },
+  ];
+
+  const socomoreGallery = [
+    { src: socomoreRailway, alt: "SOCOMORE Railway Application" },
   ];
 
   const products = [
@@ -26,6 +32,7 @@ const Products = () => {
       description: "SOCOMORE 為金屬和複合材料的製備和清潔提供廣泛的解決方案，用於運輸工具（包括鐵路）的建造和維護。我們的產品範圍涵蓋不同的領域，例如塗鴉去除、粘合和噴漆前表面的準備和清潔、外表面脫脂、內表面消毒、脫漆等專業服務。",
       image: null,
       bgColor: "from-primary/20 to-accent/20",
+      hasGallery: true,
     },
     {
       title: "TowFLEXX",
@@ -80,7 +87,11 @@ const Products = () => {
               onClick={() => {
                 if (product.hasGallery) {
                   setCurrentImageIndex(0);
-                  setIsGalleryOpen(true);
+                  if (product.title === "Motion Systems") {
+                    setIsMotionGalleryOpen(true);
+                  } else if (product.title === "SOCOMORE") {
+                    setIsSocomoreGalleryOpen(true);
+                  }
                 }
               }}
             >
@@ -124,8 +135,8 @@ const Products = () => {
         </div>
       </div>
 
-      {/* Gallery Dialog */}
-      <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
+      {/* Motion Systems Gallery Dialog */}
+      <Dialog open={isMotionGalleryOpen} onOpenChange={setIsMotionGalleryOpen}>
         <DialogContent className="max-w-5xl">
           <DialogTitle className="text-2xl font-bold text-center mb-4">
             Motion Systems 產品展示
@@ -143,6 +154,46 @@ const Products = () => {
             {/* Thumbnail Gallery on Right */}
             <div className="flex flex-col gap-3 w-32">
               {motionSystemsGallery.map((image, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIndex(idx)}
+                  className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                    currentImageIndex === idx
+                      ? "border-primary ring-2 ring-primary/50"
+                      : "border-muted hover:border-accent"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain bg-muted"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* SOCOMORE Gallery Dialog */}
+      <Dialog open={isSocomoreGalleryOpen} onOpenChange={setIsSocomoreGalleryOpen}>
+        <DialogContent className="max-w-5xl">
+          <DialogTitle className="text-2xl font-bold text-center mb-4">
+            SOCOMORE 產品展示
+          </DialogTitle>
+          <div className="flex gap-4">
+            {/* Main Image */}
+            <div className="flex-1 relative aspect-square bg-muted rounded-lg overflow-hidden">
+              <img
+                src={socomoreGallery[currentImageIndex].src}
+                alt={socomoreGallery[currentImageIndex].alt}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            
+            {/* Thumbnail Gallery on Right */}
+            <div className="flex flex-col gap-3 w-32">
+              {socomoreGallery.map((image, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
