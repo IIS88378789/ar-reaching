@@ -1,27 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import heroEngineTest from "@/assets/hero-engine-test.jpg";
-import heroSundance from "@/assets/hero-sundance.jpg";
-import heroAlpha from "@/assets/hero-alpha-aircraft.jpg";
-import heroBlue from "@/assets/hero-blue-aircraft.jpg";
-import heroHangar from "@/assets/hero-hangar-aircraft.jpg";
+import heroSky1 from "@/assets/hero-sky-1.jpg";
+import heroSky2 from "@/assets/hero-sky-2.jpg";
+import heroSky3 from "@/assets/hero-sky-3.jpg";
+import heroSky4 from "@/assets/hero-sky-4.jpg";
+import heroSky5 from "@/assets/hero-sky-5.jpg";
 const Hero = () => {
   const heroImages = [{
-    src: heroEngineTest,
-    alt: "Aviation engine testing equipment"
+    src: heroSky1,
+    alt: "Commercial aircraft soaring through blue sky with clouds"
   }, {
-    src: heroSundance,
-    alt: "Sundance aircraft on display"
+    src: heroSky2,
+    alt: "Fighter jet flying through dramatic sunset clouds"
   }, {
-    src: heroAlpha,
-    alt: "Alpha light sport aircraft in hangar"
+    src: heroSky3,
+    alt: "Business jet above sea of white clouds"
   }, {
-    src: heroBlue,
-    alt: "Blue aircraft maintenance setup"
+    src: heroSky4,
+    alt: "Light sport aircraft flying in clear blue sky"
   }, {
-    src: heroHangar,
-    alt: "Aircraft in professional hangar facility"
+    src: heroSky5,
+    alt: "Twin-engine aircraft soaring through majestic dusk sky"
   }];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   useEffect(() => {
