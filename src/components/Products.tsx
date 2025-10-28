@@ -10,10 +10,14 @@ import testfuchsLogo from "@/assets/testfuchs-logo.svg";
 import motionSimulatorDetail from "@/assets/motion-simulator-detail.png";
 import motionPlatformDetail from "@/assets/motion-platform-detail.png";
 import socomoreRailway from "@/assets/socomore-railway.jpg";
+import towflexxModels from "@/assets/towflexx-models.png";
+import towflexxBlueAngels from "@/assets/towflexx-blue-angels.jpg";
+import towflexxF16 from "@/assets/towflexx-f16.jpg";
 
 const Products = () => {
   const [isMotionGalleryOpen, setIsMotionGalleryOpen] = useState(false);
   const [isSocomoreGalleryOpen, setIsSocomoreGalleryOpen] = useState(false);
+  const [isTowflexxGalleryOpen, setIsTowflexxGalleryOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const motionSystemsGallery = [
@@ -23,6 +27,12 @@ const Products = () => {
 
   const socomoreGallery = [
     { src: socomoreRailway, alt: "SOCOMORE Railway Application" },
+  ];
+
+  const towflexxGallery = [
+    { src: towflexxModels, alt: "TowFLEXX 產品系列" },
+    { src: towflexxBlueAngels, alt: "TowFLEXX Blue Angels 應用" },
+    { src: towflexxF16, alt: "TowFLEXX F-16 應用" },
   ];
 
   const products = [
@@ -40,6 +50,7 @@ const Products = () => {
       description: "TowFLEXX 的大型無牽引桿拖飛機是完全遙控的，並配備了獨特的 360° 旋轉轉盤。這項技術確保了最大的安全性並提供了卓越的機動性，大大簡化了地面作業。這一獨家功能使 TowFLEXX 成為現代地勤解決方案的領先供應商。",
       image: null,
       bgColor: "from-destructive/20 to-primary/20",
+      hasGallery: true,
     },
     {
       title: "Motion Systems",
@@ -91,6 +102,8 @@ const Products = () => {
                     setIsMotionGalleryOpen(true);
                   } else if (product.title === "SOCOMORE") {
                     setIsSocomoreGalleryOpen(true);
+                  } else if (product.title === "TowFLEXX") {
+                    setIsTowflexxGalleryOpen(true);
                   }
                 }
               }}
@@ -194,6 +207,46 @@ const Products = () => {
             {/* Thumbnail Gallery on Right */}
             <div className="flex flex-col gap-3 w-32">
               {socomoreGallery.map((image, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIndex(idx)}
+                  className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                    currentImageIndex === idx
+                      ? "border-primary ring-2 ring-primary/50"
+                      : "border-muted hover:border-accent"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain bg-muted"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* TowFLEXX Gallery Dialog */}
+      <Dialog open={isTowflexxGalleryOpen} onOpenChange={setIsTowflexxGalleryOpen}>
+        <DialogContent className="max-w-5xl">
+          <DialogTitle className="text-2xl font-bold text-center mb-4">
+            TowFLEXX 產品展示
+          </DialogTitle>
+          <div className="flex gap-4">
+            {/* Main Image */}
+            <div className="flex-1 relative aspect-square bg-muted rounded-lg overflow-hidden">
+              <img
+                src={towflexxGallery[currentImageIndex].src}
+                alt={towflexxGallery[currentImageIndex].alt}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            
+            {/* Thumbnail Gallery on Right */}
+            <div className="flex flex-col gap-3 w-32">
+              {towflexxGallery.map((image, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
