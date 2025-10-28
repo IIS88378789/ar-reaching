@@ -126,19 +126,22 @@ const Products = () => {
 
       {/* Gallery Dialog */}
       <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
-        <DialogContent className="max-w-4xl">
+        <DialogContent className="max-w-5xl">
           <DialogTitle className="text-2xl font-bold text-center mb-4">
             Motion Systems 產品展示
           </DialogTitle>
-          <div className="space-y-4">
-            <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
+          <div className="flex gap-4">
+            {/* Main Image */}
+            <div className="flex-1 relative aspect-square bg-muted rounded-lg overflow-hidden">
               <img
                 src={motionSystemsGallery[currentImageIndex].src}
                 alt={motionSystemsGallery[currentImageIndex].alt}
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            
+            {/* Thumbnail Gallery on Right */}
+            <div className="flex flex-col gap-3 w-32">
               {motionSystemsGallery.map((image, idx) => (
                 <button
                   key={idx}
