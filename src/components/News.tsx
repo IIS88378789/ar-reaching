@@ -172,12 +172,6 @@ const News = () => {
             <CarouselNext className="right-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
           </Carousel>
         )}
-
-        <div className="text-center">
-          <Button variant="outline" size="lg">
-            查看所有消息
-          </Button>
-        </div>
       </div>
 
       <NewsDetailDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
