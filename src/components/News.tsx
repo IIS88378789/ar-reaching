@@ -3,12 +3,15 @@ import { Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef, useEffect } from "react";
+import { useRef, useState } from "react";
+import NewsDetailDialog from "./NewsDetailDialog";
 import newsSimulator from "@/assets/news-simulator-training.jpg";
 import newsMotion from "@/assets/news-motion-platform.jpg";
 import newsExhibition from "@/assets/news-exhibition.jpg";
 import newsPartnership from "@/assets/news-partnership.jpg";
 const News = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
   const plugin = useRef(Autoplay({
     delay: 3000,
     stopOnInteraction: false,
@@ -93,7 +96,15 @@ const News = () => {
                       <p className="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
                         {item.excerpt}
                       </p>
-                      <Button variant="link" className="p-0 h-auto text-accent hover:text-accent/80 font-semibold group/btn">
+                      <Button 
+                        variant="link" 
+                        className="p-0 h-auto text-accent hover:text-accent/80 font-semibold group/btn"
+                        onClick={() => {
+                          if (index === 0) {
+                            setIsDialogOpen(true);
+                          }
+                        }}
+                      >
                         閱讀更多
                         <ArrowRight size={16} className="ml-1 transition-transform group-hover/btn:translate-x-1" />
                       </Button>
@@ -112,6 +123,8 @@ const News = () => {
           </Button>
         </div>
       </div>
+
+      <NewsDetailDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
     </section>;
 };
 export default News;
