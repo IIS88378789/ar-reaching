@@ -6,12 +6,12 @@ const Contact = () => {
     {
       title: "公司地址",
       address: "桃園市桃園區大興西路二段139巷137號3F",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.5!2d121.3!3d25.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDAwJzAwLjAiTiAxMjHCsDE4JzAwLjAiRQ!5e0!3m2!1szh-TW!2stw!4v1234567890"
+      mapUrl: "https://www.google.com/maps?q=桃園市桃園區大興西路二段139巷137號3F&output=embed"
     },
     {
       title: "ISO 9001 維修廠地址",
       address: "桃園市大園區五青路312巷51-7號",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.5!2d121.2!3d25.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA2JzAwLjAiTiAxMjHCsDEyJzAwLjAiRQ!5e0!3m2!1szh-TW!2stw!4v1234567890"
+      mapUrl: "https://www.google.com/maps?q=桃園市大園區五青路312巷51-7號&output=embed"
     }
   ];
 
