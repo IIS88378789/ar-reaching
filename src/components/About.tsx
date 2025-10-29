@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Users, Globe, TrendingUp } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import isoCertificate from "@/assets/iso-certificate.png";
+
 const About = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const stats = [{
     icon: Award,
     value: "15+",
@@ -113,7 +121,23 @@ const About = () => {
                   </div>
                 </div>
                 <div className="bg-white p-6 md:p-8 h-full flex items-center justify-center">
-                  <img src={isoCertificate} alt="ISO 9001:2015 證書" title="2025年8月18日 ISO 9001:2015 核發" className="w-full h-auto max-w-md object-contain animate-fade-in" />
+                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <img 
+                        src={isoCertificate} 
+                        alt="ISO 9001:2015 證書" 
+                        title="點擊放大查看證書" 
+                        className="w-full h-auto max-w-md object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" 
+                      />
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl w-full p-2">
+                      <img 
+                        src={isoCertificate} 
+                        alt="ISO 9001:2015 證書" 
+                        className="w-full h-auto object-contain" 
+                      />
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
             </CardContent>
