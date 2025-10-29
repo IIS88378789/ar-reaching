@@ -19,15 +19,39 @@ const About = () => {
     value: "100+",
     label: "成功案例"
   }];
-  return <section id="about" className="py-20 bg-background relative overflow-hidden">
-      {/* Aircraft and maintenance themed background */}
-      <div className="absolute inset-0 opacity-[0.08]">
-        <div className="absolute top-10 left-10 text-8xl">✈️</div>
-        <div className="absolute top-20 right-20 text-7xl rotate-45">🔧</div>
-        <div className="absolute bottom-32 left-1/4 text-6xl -rotate-12">⚙️</div>
-        <div className="absolute top-1/3 right-1/4 text-9xl rotate-12">✈️</div>
-        <div className="absolute bottom-20 right-10 text-7xl">🛠️</div>
-        <div className="absolute top-1/2 left-10 text-6xl rotate-90">⚡</div>
+  return <section id="about" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 relative overflow-hidden">
+      {/* Aircraft and maintenance themed background pattern */}
+      <div className="absolute inset-0 opacity-[0.15]">
+        {/* Grid pattern */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }} />
+        
+        {/* Diagonal lines for movement effect */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 80px,
+            hsl(var(--primary) / 0.05) 80px,
+            hsl(var(--primary) / 0.05) 82px
+          )`
+        }} />
+        
+        {/* Circular tech elements */}
+        <div className="absolute top-20 left-10 w-64 h-64 rounded-full border-4 border-primary/20" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full border-4 border-primary/20" />
+        <div className="absolute top-1/2 left-1/3 w-48 h-48 rounded-full border-2 border-primary/10" />
+        
+        {/* Aircraft silhouette elements */}
+        <div className="absolute top-32 right-1/4 w-32 h-1 bg-primary/20 rotate-45" />
+        <div className="absolute top-32 right-1/4 w-32 h-1 bg-primary/20 -rotate-45" />
+        <div className="absolute bottom-40 left-1/4 w-24 h-1 bg-primary/20 rotate-12" />
+        <div className="absolute bottom-40 left-1/4 w-24 h-1 bg-primary/20 -rotate-12" />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
