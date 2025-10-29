@@ -60,7 +60,7 @@ const Hero = () => {
         </div>
 
         {/* Tech Stats */}
-        <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
           {[{
           number: "15+",
           label: "年經驗"
@@ -70,6 +70,9 @@ const Hero = () => {
         }, {
           number: "98%",
           label: "客戶滿意度"
+        }, {
+          number: "10+",
+          label: "合作夥伴"
         }].map((stat, i) => <div key={i} className="glass-effect rounded-lg p-4 animate-fade-in" style={{
           animationDelay: `${i * 0.2}s`
         }}>
