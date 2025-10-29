@@ -7,6 +7,7 @@ import { useRef, useEffect } from "react";
 import newsSimulator from "@/assets/news-simulator-training.jpg";
 import newsMotion from "@/assets/news-motion-platform.jpg";
 import newsExhibition from "@/assets/news-exhibition.jpg";
+import newsPartnership from "@/assets/news-partnership.jpg";
 const News = () => {
   const plugin = useRef(Autoplay({
     delay: 3000,
@@ -14,6 +15,12 @@ const News = () => {
     stopOnMouseEnter: true
   }));
   const newsItems = [{
+    date: "2024年10月7日",
+    title: "中華科技大學簽署產學合作,尹航科技有限公司航空人才培育研究案",
+    excerpt: "本公司與中華科技大學正式簽署產學合作協議，共同推動航空人才培育研究計畫，結合產業實務與學術研究，培養專業航空技術人才。",
+    category: "合作夥伴",
+    image: newsPartnership
+  }, {
     date: "2024年3月15日",
     title: "中華科技大學簽署 A320 模擬機訓練合作計畫",
     excerpt: "本公司與中華科技大學航空學院簽署合作協議，共同推動專業飛行訓練計畫，提升航空人才培訓品質。",
