@@ -6,7 +6,15 @@ import heroSky2 from "@/assets/hero-sky-2.jpg";
 import heroSky3 from "@/assets/hero-sky-3.jpg";
 import heroSky4 from "@/assets/hero-sky-4.jpg";
 import heroSky5 from "@/assets/hero-sky-5.jpg";
+import isoCertificate from "@/assets/iso-certificate.png";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 const Hero = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const heroImages = [{
     src: heroSky1,
     alt: "Commercial aircraft soaring through blue sky with clouds"
@@ -76,6 +84,57 @@ const Hero = () => {
               <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
               <div className="text-sm text-primary/70">{stat.label}</div>
             </div>)}
+        </div>
+
+        {/* Company Info Card */}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <Card className="bg-gradient-to-br from-primary to-accent text-primary-foreground overflow-hidden">
+            <CardContent className="p-0">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="p-8 md:p-12">
+                  <h3 className="text-3xl font-bold mb-6">公司簡介</h3>
+                  <div className="space-y-4 text-lg">
+                    <p>尹航科技有限公司於2017年成立，以從事民航，軍用和教學航空器提供航空器材相關供應和服務。</p>
+                    <p>尹航科技有限公司之核心競爭力包含豐富的航空產業知識及銷售，資訊迅速流通成為我們最大競爭優勢，對市場需求的深入度，與客戶緊密的結合，是我們的目標，也是我們賴以生存的最佳利器。</p>
+                    <p>二十年戰鬥機，客機飛機組裝經驗。民航局合格飛行，維修証照。</p>
+                    <div className="mt-6 pt-6 border-t border-primary-foreground/20">
+                      <h4 className="text-xl font-semibold mb-3">專業服務</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start">
+                          <span className="mr-2">✈️</span>
+                          <span>飛行模擬機訓練，資深教官指導教學</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="mr-2">🔧</span>
+                          <span>飛機修護乙，丙級技術士證照輔導</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <p className="text-sm mt-4 opacity-90">2025年8月18日 ISO 9001:2015 核發</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 md:p-8 h-full flex items-center justify-center">
+                  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                    <DialogTrigger asChild>
+                      <img 
+                        src={isoCertificate} 
+                        alt="ISO 9001:2015 證書" 
+                        title="點擊放大查看證書" 
+                        className="w-full h-auto max-w-md object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" 
+                      />
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl w-full p-2">
+                      <img 
+                        src={isoCertificate} 
+                        alt="ISO 9001:2015 證書" 
+                        className="w-full h-auto object-contain" 
+                      />
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
 
