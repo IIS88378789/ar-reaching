@@ -85,27 +85,27 @@ const News = () => {
   const renderNewsCard = (item: typeof newsItems[0], index: number, isFeatured = false) => (
     <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-card border border-border/50 group relative h-full">
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className={`relative overflow-hidden bg-muted ${isFeatured ? 'h-80 md:h-96' : 'h-48'}`}>
+      <div className={`relative overflow-hidden bg-muted ${isFeatured ? 'h-56 md:h-72' : 'h-40'}`}>
         <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-        <div className="absolute bottom-3 left-3 inline-block px-4 py-1.5 bg-background/90 backdrop-blur-sm text-foreground border border-border rounded text-xs font-semibold tracking-wide">
+        <div className="absolute bottom-3 left-3 inline-block px-3 py-1 bg-background/90 backdrop-blur-sm text-foreground border border-border rounded text-xs font-semibold tracking-wide">
           {item.category}
         </div>
       </div>
-      <CardContent className={`${isFeatured ? 'p-8' : 'p-6'} relative`}>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-          <Calendar size={14} className="text-accent" />
+      <CardContent className={`${isFeatured ? 'p-6' : 'p-4'} relative`}>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+          <Calendar size={12} className="text-accent" />
           <span className="font-medium">{item.date}</span>
         </div>
-        <h3 className={`${isFeatured ? 'text-2xl md:text-3xl' : 'text-xl'} font-bold mb-3 text-foreground leading-tight group-hover:text-accent transition-colors duration-300`}>
+        <h3 className={`${isFeatured ? 'text-xl md:text-2xl' : 'text-lg'} font-bold mb-2 text-foreground leading-tight group-hover:text-accent transition-colors duration-300`}>
           {item.title}
         </h3>
-        <p className={`text-muted-foreground mb-4 ${isFeatured ? 'line-clamp-4 text-base' : 'line-clamp-3'} leading-relaxed`}>
+        <p className={`text-muted-foreground mb-3 ${isFeatured ? 'line-clamp-3 text-sm' : 'line-clamp-2 text-sm'} leading-relaxed`}>
           {item.excerpt}
         </p>
         <Button 
           variant="link" 
-          className="p-0 h-auto text-accent hover:text-accent/80 font-semibold group/btn"
+          className="p-0 h-auto text-accent hover:text-accent/80 font-semibold group/btn text-sm"
           onClick={() => {
             if (index === 0) {
               setIsTadteDialogOpen(true);
@@ -117,7 +117,7 @@ const News = () => {
           }}
         >
           閱讀更多
-          <ArrowRight size={16} className="ml-1 transition-transform group-hover/btn:translate-x-1" />
+          <ArrowRight size={14} className="ml-1 transition-transform group-hover/btn:translate-x-1" />
         </Button>
       </CardContent>
     </Card>
