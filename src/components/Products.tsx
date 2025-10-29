@@ -128,7 +128,7 @@ const Products = () => {
               }}
             >
               {product.image ? (
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
+                <div className="relative h-44 overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
                   <img
                     src={product.image}
                     alt={product.title}
@@ -137,7 +137,7 @@ const Products = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ) : (
-                <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${product.bgColor} flex items-center justify-center`}>
+                <div className={`relative h-44 overflow-hidden bg-gradient-to-br ${product.bgColor} flex items-center justify-center`}>
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)] animate-pulse" />
                   {product.logo && (
                     <img
