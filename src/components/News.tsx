@@ -78,6 +78,51 @@ const News = () => {
     category: "產品認證",
     image: newsMotion
   }];
+  const featuredNews = newsItems[0];
+  const secondaryNews = newsItems.slice(1, 3);
+  const carouselNews = newsItems.slice(3);
+
+  const renderNewsCard = (item: typeof newsItems[0], index: number, isFeatured = false) => (
+    <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-card border border-border/50 group relative h-full">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className={`relative overflow-hidden bg-muted ${isFeatured ? 'h-80 md:h-96' : 'h-48'}`}>
+        <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+        <div className="absolute bottom-3 left-3 inline-block px-4 py-1.5 bg-background/90 backdrop-blur-sm text-foreground border border-border rounded text-xs font-semibold tracking-wide">
+          {item.category}
+        </div>
+      </div>
+      <CardContent className={`${isFeatured ? 'p-8' : 'p-6'} relative`}>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+          <Calendar size={14} className="text-accent" />
+          <span className="font-medium">{item.date}</span>
+        </div>
+        <h3 className={`${isFeatured ? 'text-2xl md:text-3xl' : 'text-xl'} font-bold mb-3 text-foreground leading-tight group-hover:text-accent transition-colors duration-300`}>
+          {item.title}
+        </h3>
+        <p className={`text-muted-foreground mb-4 ${isFeatured ? 'line-clamp-4 text-base' : 'line-clamp-3'} leading-relaxed`}>
+          {item.excerpt}
+        </p>
+        <Button 
+          variant="link" 
+          className="p-0 h-auto text-accent hover:text-accent/80 font-semibold group/btn"
+          onClick={() => {
+            if (index === 0) {
+              setIsTadteDialogOpen(true);
+            } else if (index === 1) {
+              setIsTowflexxDialogOpen(true);
+            } else if (index === 2) {
+              setIsDialogOpen(true);
+            }
+          }}
+        >
+          閱讀更多
+          <ArrowRight size={16} className="ml-1 transition-transform group-hover/btn:translate-x-1" />
+        </Button>
+      </CardContent>
+    </Card>
+  );
+
   return <section id="news" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -87,57 +132,44 @@ const News = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">掌握尹航科技的最新動態與產業資訊</p>
         </div>
 
-        <Carousel opts={{
-        align: "start",
-        loop: true
-      }} plugins={[plugin.current]} className="w-full max-w-6xl mx-auto mb-12">
-          <CarouselContent>
-            {newsItems.map((item, index) => <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-2">
-                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-card border border-border/50 group relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative h-56 overflow-hidden bg-muted">
-                      <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                      <div className="absolute bottom-3 left-3 inline-block px-4 py-1.5 bg-background/90 backdrop-blur-sm text-foreground border border-border rounded text-xs font-semibold tracking-wide">
-                        {item.category}
-                      </div>
-                    </div>
-                    <CardContent className="p-6 relative">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                        <Calendar size={14} className="text-accent" />
-                        <span className="font-medium">{item.date}</span>
-                      </div>
-                      <h3 className="text-xl font-bold mb-3 text-foreground leading-tight group-hover:text-accent transition-colors duration-300">
-                        {item.title}
-                      </h3>
-                      <p className="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
-                        {item.excerpt}
-                      </p>
-                      <Button 
-                        variant="link" 
-                        className="p-0 h-auto text-accent hover:text-accent/80 font-semibold group/btn"
-                        onClick={() => {
-                          if (index === 0) {
-                            setIsTadteDialogOpen(true);
-                          } else if (index === 1) {
-                            setIsTowflexxDialogOpen(true);
-                          } else if (index === 2) {
-                            setIsDialogOpen(true);
-                          }
-                        }}
-                      >
-                        閱讀更多
-                        <ArrowRight size={16} className="ml-1 transition-transform group-hover/btn:translate-x-1" />
-                      </Button>
-                    </CardContent>
-                  </Card>
+        {/* Featured and Secondary News */}
+        <div className="max-w-7xl mx-auto mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            {/* Featured News - Takes 2 columns */}
+            <div className="lg:col-span-2">
+              {renderNewsCard(featuredNews, 0, true)}
+            </div>
+            
+            {/* Secondary News - Stacked in 1 column */}
+            <div className="flex flex-col gap-6">
+              {secondaryNews.map((item, idx) => (
+                <div key={idx + 1}>
+                  {renderNewsCard(item, idx + 1)}
                 </div>
-              </CarouselItem>)}
-          </CarouselContent>
-          <CarouselPrevious className="left-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
-          <CarouselNext className="right-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
-        </Carousel>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Carousel for remaining news */}
+        {carouselNews.length > 0 && (
+          <Carousel opts={{
+            align: "start",
+            loop: true
+          }} plugins={[plugin.current]} className="w-full max-w-6xl mx-auto mb-12">
+            <CarouselContent>
+              {carouselNews.map((item, index) => (
+                <CarouselItem key={index + 3} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-2">
+                    {renderNewsCard(item, index + 3)}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
+            <CarouselNext className="right-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
+          </Carousel>
+        )}
 
         <div className="text-center">
           <Button variant="outline" size="lg">
