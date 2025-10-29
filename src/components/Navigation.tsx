@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+import iso9001Logo from "@/assets/iso-9001-logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +37,7 @@ const Navigation = () => {
               <div className="font-bold text-lg leading-tight">尹航科技有限公司</div>
               <div className="text-xs opacity-90">Aerobatic Technologies Ltd.</div>
             </div>
+            <img src={iso9001Logo} alt="ISO 9001 Certification" className="h-12 w-auto ml-2" title="ISO 9001:2015 認證" />
           </div>
 
           {/* Desktop Navigation */}
