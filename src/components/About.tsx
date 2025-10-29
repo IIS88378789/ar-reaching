@@ -21,7 +21,7 @@ const About = () => {
   }];
   return <section id="about" className="py-20 bg-background relative overflow-hidden">
       {/* Aircraft and maintenance themed background */}
-      <div className="absolute inset-0 opacity-[0.03]">
+      <div className="absolute inset-0 opacity-[0.08]">
         <div className="absolute top-10 left-10 text-8xl">✈️</div>
         <div className="absolute top-20 right-20 text-7xl rotate-45">🔧</div>
         <div className="absolute bottom-32 left-1/4 text-6xl -rotate-12">⚙️</div>
