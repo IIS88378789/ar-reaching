@@ -1,4 +1,4 @@
-import { Plane, Settings, GraduationCap, Wrench } from "lucide-react";
+import { Plane, Settings, GraduationCap, Wrench, Cog } from "lucide-react";
 import serviceAircraft1 from "@/assets/service-aircraft-1.jpg";
 import serviceAircraft2 from "@/assets/service-aircraft-2.jpg";
 import serviceTeaching1 from "@/assets/service-teaching-1.jpg";
@@ -9,6 +9,8 @@ import serviceSimulator1 from "@/assets/service-simulator-1.jpg";
 import serviceSimulator2 from "@/assets/service-simulator-2.jpg";
 import serviceSimulator3 from "@/assets/service-simulator-3.jpg";
 import serviceSimulator4 from "@/assets/service-simulator-4.jpg";
+import serviceEngineTest1 from "@/assets/service-engine-test-1.jpg";
+import serviceEngineTest2 from "@/assets/service-engine-test-2.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -41,6 +43,12 @@ const Services = () => {
       title: "A320 飛行模擬機維修",
       description: "各項硬體, 電腦軟體設定, 消耗器材更換等",
       images: [serviceParts, serviceParts],
+    },
+    {
+      icon: Cog,
+      title: "帷幕測試發動機組裝維修",
+      description: "風雨測試發動機試車臺, 提供700 PA, 1000 PA ,13級風速測試, 達到TAF 標準測試",
+      images: [serviceEngineTest1, serviceEngineTest2],
     },
   ];
 
