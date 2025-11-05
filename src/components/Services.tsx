@@ -122,7 +122,7 @@ const Services = () => {
                     {/* Title with gradient */}
                     <h3 className="text-3xl md:text-4xl font-bold">
                       <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
-                        {service.title}
+                        {index + 1}. {service.title}
                       </span>
                     </h3>
                     
