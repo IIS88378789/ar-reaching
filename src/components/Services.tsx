@@ -1,6 +1,8 @@
 import { Plane, Settings, GraduationCap, Wrench } from "lucide-react";
 import serviceAircraft1 from "@/assets/service-aircraft-1.jpg";
 import serviceAircraft2 from "@/assets/service-aircraft-2.jpg";
+import serviceTeaching1 from "@/assets/service-teaching-1.jpg";
+import serviceTeaching2 from "@/assets/service-teaching-2.jpg";
 import serviceMaintenance from "@/assets/service-maintenance.png";
 import serviceParts from "@/assets/service-parts.png";
 import serviceSimulator from "@/assets/service-simulator.png";
@@ -15,9 +17,9 @@ const Services = () => {
     },
     {
       icon: Settings,
-      title: "飛機, 發動機維修, 組裝",
+      title: "航空教學設備",
       description: "根據客戶需求設計與開發專屬的飛行訓練系統，從規劃、設計到安裝，提供一站式整合服務。",
-      images: [serviceMaintenance, serviceMaintenance],
+      images: [serviceTeaching1, serviceTeaching2],
     },
     {
       icon: GraduationCap,
