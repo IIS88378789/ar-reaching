@@ -53,7 +53,11 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <Button variant="secondary" className="ml-4">
+            <Button 
+              variant="secondary" 
+              className="ml-4"
+              onClick={() => window.location.href = 'mailto:sales@aerobatic-tec.com.tw'}
+            >
               聯絡我們
             </Button>
           </div>
@@ -83,7 +87,11 @@ const Navigation = () => {
               </a>
             ))}
             <div className="px-4 pt-2">
-              <Button variant="secondary" className="w-full">
+              <Button 
+                variant="secondary" 
+                className="w-full"
+                onClick={() => window.location.href = 'mailto:sales@aerobatic-tec.com.tw'}
+              >
                 聯絡我們
               </Button>
             </div>
