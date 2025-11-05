@@ -11,7 +11,7 @@ import motionSimulatorDetail from "@/assets/motion-simulator-detail.png";
 import motionPlatformDetail from "@/assets/motion-platform-detail.png";
 import socomoreRailway from "@/assets/socomore-railway.jpg";
 import towflexxModels from "@/assets/towflexx-models.png";
-import towflexxBlueAngels from "@/assets/towflexx-blue-angels.jpg";
+import towflexxBlueAngels from "@/assets/towflexx-blue-angels.png";
 import towflexxF16 from "@/assets/towflexx-f16.jpg";
 import testfuchsCustom from "@/assets/testfuchs-custom.png";
 import testfuchsModular from "@/assets/testfuchs-modular.png";
@@ -38,7 +38,7 @@ const Products = () => {
 
   const towflexxGallery = [
     { src: towflexxModels, alt: "TowFLEXX 產品系列" },
-    { src: towflexxBlueAngels, alt: "TowFLEXX Blue Angels 應用" },
+    { src: towflexxBlueAngels, alt: "TowFLEXX 應用示意" },
     { src: towflexxF16, alt: "TowFLEXX F-16 應用" },
   ];
 
