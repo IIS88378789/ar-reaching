@@ -1,16 +1,9 @@
 import { Plane, Settings, GraduationCap, Wrench } from "lucide-react";
 import serviceAircraft1 from "@/assets/service-aircraft-1.jpg";
 import serviceAircraft2 from "@/assets/service-aircraft-2.jpg";
-import serviceAircraft3 from "@/assets/service-aircraft-3.jpg";
 import serviceMaintenance from "@/assets/service-maintenance.png";
 import serviceParts from "@/assets/service-parts.png";
 import serviceSimulator from "@/assets/service-simulator.png";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 
 const Services = () => {
   const services = [
@@ -18,7 +11,7 @@ const Services = () => {
       icon: Plane,
       title: "航空器材銷售",
       description: "代理國際知名航空設備品牌，包括 TowFLEX、Motion Systems 等專業產品，提供完整的產品線與技術支援。",
-      images: [serviceAircraft1, serviceAircraft2, serviceAircraft3],
+      images: [serviceAircraft1, serviceAircraft2],
     },
     {
       icon: Settings,
@@ -82,7 +75,7 @@ const Services = () => {
                   }`}
                 />
                 
-                {/* Image Section with Carousel */}
+                {/* Image Section with Two Images */}
                 <div
                   className={`relative group ${isEven ? "" : "md:col-start-2"}`}
                 >
@@ -90,38 +83,26 @@ const Services = () => {
                   <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-accent/30 rounded-lg rotate-12 group-hover:rotate-45 transition-transform duration-500 z-20" />
                   <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-secondary/30 rounded-lg -rotate-12 group-hover:-rotate-45 transition-transform duration-500 z-20" />
                   
-                  <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-glow transition-all duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-secondary/20 z-10 pointer-events-none" />
-                    <Carousel
-                      opts={{
-                        align: "start",
-                        loop: true,
-                      }}
-                      plugins={[
-                        Autoplay({
-                          delay: 3000,
-                        }),
-                      ]}
-                      className="w-full"
-                    >
-                      <CarouselContent>
-                        {service.images.map((image, imgIndex) => (
-                          <CarouselItem key={imgIndex}>
-                            <img
-                              src={image}
-                              alt={`${service.title} ${imgIndex + 1}`}
-                              className="w-full h-80 object-cover"
-                            />
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
-                    </Carousel>
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent z-10 pointer-events-none" />
-                    
-                    {/* Glowing border effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                      <div className="absolute inset-0 rounded-2xl border-2 border-accent/50 animate-pulse-glow" />
-                    </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {service.images.map((image, imgIndex) => (
+                      <div
+                        key={imgIndex}
+                        className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-glow transition-all duration-500"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-secondary/20 z-10 pointer-events-none" />
+                        <img
+                          src={image}
+                          alt={`${service.title} ${imgIndex + 1}`}
+                          className="w-full h-64 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/30 to-transparent z-10 pointer-events-none" />
+                        
+                        {/* Glowing border effect */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                          <div className="absolute inset-0 rounded-2xl border-2 border-accent/50 animate-pulse-glow" />
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
