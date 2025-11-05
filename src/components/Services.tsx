@@ -6,6 +6,12 @@ import serviceTeaching2 from "@/assets/service-teaching-2.jpg";
 import serviceMaintenance from "@/assets/service-maintenance.png";
 import serviceParts from "@/assets/service-parts.png";
 import serviceSimulator from "@/assets/service-simulator.png";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const Services = () => {
   const services = [
@@ -77,7 +83,7 @@ const Services = () => {
                   }`}
                 />
                 
-                {/* Image Section with Two Images */}
+                {/* Image Section - Static or Carousel based on image count */}
                 <div
                   className={`relative group ${isEven ? "" : "md:col-start-2"}`}
                 >
@@ -85,27 +91,65 @@ const Services = () => {
                   <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-accent/30 rounded-lg rotate-12 group-hover:rotate-45 transition-transform duration-500 z-20" />
                   <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-secondary/30 rounded-lg -rotate-12 group-hover:-rotate-45 transition-transform duration-500 z-20" />
                   
-                  <div className="grid grid-cols-2 gap-4">
-                    {service.images.map((image, imgIndex) => (
-                      <div
-                        key={imgIndex}
-                        className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-glow transition-all duration-500"
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-secondary/20 z-10 pointer-events-none" />
-                        <img
-                          src={image}
-                          alt={`${service.title} ${imgIndex + 1}`}
-                          className="w-full h-64 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/30 to-transparent z-10 pointer-events-none" />
-                        
-                        {/* Glowing border effect */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                          <div className="absolute inset-0 rounded-2xl border-2 border-accent/50 animate-pulse-glow" />
+                  {service.images.length <= 2 ? (
+                    // Static display for 2 or fewer images
+                    <div className="grid grid-cols-2 gap-4">
+                      {service.images.map((image, imgIndex) => (
+                        <div
+                          key={imgIndex}
+                          className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-glow transition-all duration-500"
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-secondary/20 z-10 pointer-events-none" />
+                          <img
+                            src={image}
+                            alt={`${service.title} ${imgIndex + 1}`}
+                            className="w-full h-64 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/30 to-transparent z-10 pointer-events-none" />
+                          
+                          {/* Glowing border effect */}
+                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                            <div className="absolute inset-0 rounded-2xl border-2 border-accent/50 animate-pulse-glow" />
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  ) : (
+                    // Carousel for more than 2 images
+                    <Carousel
+                      opts={{
+                        align: "start",
+                        loop: true,
+                      }}
+                      plugins={[
+                        Autoplay({
+                          delay: 3000,
+                        }),
+                      ]}
+                      className="w-full"
+                    >
+                      <CarouselContent>
+                        {service.images.map((image, imgIndex) => (
+                          <CarouselItem key={imgIndex} className="md:basis-1/2">
+                            <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-glow transition-all duration-500">
+                              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-secondary/20 z-10 pointer-events-none" />
+                              <img
+                                src={image}
+                                alt={`${service.title} ${imgIndex + 1}`}
+                                className="w-full h-64 object-cover"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/30 to-transparent z-10 pointer-events-none" />
+                              
+                              {/* Glowing border effect */}
+                              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                                <div className="absolute inset-0 rounded-2xl border-2 border-accent/50 animate-pulse-glow" />
+                              </div>
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                    </Carousel>
+                  )}
                 </div>
 
                 {/* Content Section */}
