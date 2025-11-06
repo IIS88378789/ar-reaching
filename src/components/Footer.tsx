@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm opacity-90">
-          <p>&copy; 2024 宇航科技有限公司 Aerobatic Technologies Ltd. 版權所有</p>
+          <p>&copy; 2024 尹航科技有限公司 Aerobatic Technologies Ltd. 版權所有</p>
         </div>
       </div>
     </footer>;
