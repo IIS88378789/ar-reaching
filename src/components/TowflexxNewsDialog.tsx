@@ -1,7 +1,7 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Calendar } from "lucide-react";
 import towflexxDetail1 from "@/assets/towflexx-demo-detail-1.jpg";
-import towflexxDetail2 from "@/assets/towflexx-demo-detail-2.jpg";
+import towflexxDetail2 from "@/assets/towflexx-demo-detail-2-20250521.jpg";
 import towflexxDetail3 from "@/assets/towflexx-demo-detail-3.jpg";
 
 interface TowflexxNewsDialogProps {
@@ -21,6 +21,7 @@ const TowflexxNewsDialog = ({ open, onOpenChange }: TowflexxNewsDialogProps) => 
           <DialogTitle className="text-2xl md:text-3xl text-foreground leading-tight">
             TOWFLEXX TF5 飛特立航空 DEMO
           </DialogTitle>
+          <DialogDescription className="sr-only">TOWFLEXX TF5 現場 DEMO 照片，共三張。</DialogDescription>
         </DialogHeader>
         
         <div className="mt-6 space-y-6">
